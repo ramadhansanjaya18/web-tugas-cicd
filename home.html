@@ -1,0 +1,590 @@
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CyberTrunk - Cybersecurity Modern Website</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Orbitron", sans-serif;
+        background: #0f111a;
+        color: #a0b0d0;
+        overflow-x: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      .glow-text {
+        color: #5fd1c7;
+        text-shadow: 0 0 2px #5fd1c7, 0 0 4px #3bb7b0;
+      }
+
+      .glow-icon {
+        color: #3bb7b0;
+        filter: drop-shadow(0 0 2px #3bb7b0);
+        transition: filter 0.3s ease;
+      }
+      .glow-icon:hover {
+        filter: drop-shadow(0 0 4px #3bb7b0) drop-shadow(0 0 6px #3bb7b0);
+      }
+
+      .navbar {
+        background: #121526;
+        box-shadow: 0 0 6px #3bb7b044, inset 0 0 10px #3bb7b022;
+      }
+      .navbar-brand,
+      .nav-link {
+        color: #5fd1c7 !important;
+        text-shadow: 0 0 2px #5fd1c7, 0 0 4px #3bb7b0;
+        transition: color 0.3s ease;
+      }
+      .nav-link:hover,
+      .nav-link:focus {
+        color: #3bb7b0 !important;
+        text-shadow: 0 0 4px #3bb7b0, 0 0 6px #3bb7b0;
+      }
+
+      .hero {
+        background: url("https://plus.unsplash.com/premium_photo-1674506652942-409ccf9ee0f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3w0fHx8ZW58MHx8fHx8")
+          center center/cover no-repeat;
+        position: relative;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+        color: #5fd1c7;
+        text-shadow: 0 0 4px #3bb7b0;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 17, 26, 0.9);
+        z-index: 0;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 4px #3bb7b0, 0 0 8px #3bb7b0;
+      }
+      .hero p {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-shadow: 0 0 2px #3bb7b0, 0 0 4px #3bb7b0;
+      }
+
+      .slider-container {
+        position: relative;
+        overflow: hidden;
+        padding: 2rem 0 3rem 0;
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      .slider-track {
+        display: flex;
+        transition: transform 0.7s ease-in-out;
+        will-change: transform;
+        cursor: grab;
+        user-select: none;
+      }
+      .slider-track:active {
+        cursor: grabbing;
+      }
+      .card {
+        background: #1a1c2b;
+        border: 1px solid #3bb7b022;
+        box-shadow: 0 0 3px #3bb7b022, inset 0 0 6px #3bb7b011;
+        cursor: pointer;
+        min-height: 360px;
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 calc(33.3333% - 1rem);
+        margin: 0 0.5rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        user-select: none;
+      }
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px #3bb7b088, inset 0 0 15px #3bb7b044;
+        z-index: 10;
+      }
+      .card-title {
+        color: #5fd1c7;
+        text-shadow: 0 0 2px #5fd1c7, 0 0 4px #3bb7b0;
+      }
+      .card-text {
+        color: #8ab9d1;
+        flex-grow: 1;
+      }
+      .card-img-top {
+        border-bottom: 1px solid #3bb7b022;
+        max-height: 180px;
+        object-fit: cover;
+      }
+
+      .btn-cyber {
+        background: #3bb7b0;
+        color: #0f111a;
+        font-weight: 700;
+        box-shadow: 0 0 4px #3bb7b0;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+      }
+      .btn-cyber:hover,
+      .btn-cyber:focus {
+        background: #5fd1c7;
+        box-shadow: 0 0 8px #5fd1c7;
+        color: #0f111a;
+      }
+      .btn-cyber a {
+        color: black;
+      }
+
+      @media (max-width: 1024px) {
+        .card {
+          flex: 0 0 calc(50% - 1rem);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .card {
+          flex: 0 0 calc(100% - 1rem);
+        }
+      }
+
+      footer {
+        background: #121526;
+        color: #5fd1c7;
+        text-align: center;
+        padding: 1.5rem 1rem;
+        font-size: 0.9rem;
+        box-shadow: inset 0 1px 0 #3bb7b011;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+      }
+      footer a {
+        color: #3bb7b0;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        transition: color 0.3s ease;
+      }
+      footer a:hover,
+      footer a:focus {
+        color: #5fd1c7;
+        text-decoration: underline;
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 5%;
+        width: 90%;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #3bb7b0 20%,
+          #5fd1c7 50%,
+          #3bb7b0 80%,
+          transparent
+        );
+        opacity: 0.15;
+        pointer-events: none;
+      }
+      /* Ikon kecil di footer */
+      .footer-icons {
+        margin-top: 0.5rem;
+      }
+      .footer-icons a {
+        margin: 0 0.4rem;
+        color: #3bb7b0;
+        filter: drop-shadow(0 0 1.5px #3bb7b0);
+        transition: color 0.3s ease;
+        cursor: pointer;
+        font-size: 1.2rem;
+        display: inline-block;
+      }
+      .footer-icons a:hover {
+        color: #5fd1c7;
+        filter: drop-shadow(0 0 4px #5fd1c7);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar  -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a
+          class="navbar-brand glow-text d-flex align-items-center"
+          href="home.html"
+        >
+          <i class="fas fa-lock-open glow-icon me-2"></i> CyberTrunk
+        </a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span
+            class="navbar-toggler-icon"
+            style="filter: drop-shadow(0 0 2px #3bb7b0)"
+          ></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto gap-3">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="artikel.html">Artikel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profil.html">Profil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="galeri.html">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontak.html">Kontact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="glow-text">Selamat Datang di CyberTrunk</h1>
+        <p>
+          Gerbang utama Anda menuju dunia keamanan siber yang futuristik dan
+          terpercaya. Lindungi data dan jaringan Anda dengan teknologi terkini.
+        </p>
+      </div>
+    </section>
+
+    <!-- Slider card  -->
+    <section
+      class="slider-container"
+      aria-label="Slider informasi cybersecurity"
+    >
+      <button
+        id="prevBtn"
+        aria-label="Geser ke kiri"
+        class="btn btn-cyber position-absolute top-50 start-0 translate-middle-y"
+        style="z-index: 20; width: 40px; height: 40px; padding: 0"
+        type="button"
+      >
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button
+        id="nextBtn"
+        aria-label="Geser ke kanan"
+        class="btn btn-cyber position-absolute top-50 end-0 translate-middle-y"
+        style="z-index: 20; width: 40px; height: 40px; padding: 0"
+        type="button"
+      >
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div
+        class="slider-track"
+        id="sliderTrack"
+        tabindex="0"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <!-- Card 1 -->
+        <div class="card" tabindex="0" aria-label="Firewall Protection ">
+          <img
+            src="./img/artikel1.jpg"
+            class="card-img-top"
+            alt="Gambar1"
+            height="180"
+            width="320"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title glow-text">
+              Firewall Protection
+              <i class="fas fa-firewall glow-icon ms-2"></i>
+            </h5>
+            <p class="card-text flex-grow-1">
+              Firewall merupakan komponen fundamental dalam sistem keamanan
+              jaringan.
+            </p>
+            <button
+              class="btn btn-cyber w-100 btn-learn-more"
+              data-link="artikel.html"
+              type="button"
+            >
+              Pelajari Lebih Lanjut
+            </button>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card" tabindex="0" aria-label="Data Encryption">
+          <img
+            src="./img/artikel2.jpg"
+            class="card-img-top"
+            alt="Ilustrasi Data Encryption "
+            height="180"
+            width="320"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title glow-text">
+              Data Encryption
+              <i class="fas fa-key glow-icon ms-2"></i>
+            </h5>
+            <p class="card-text flex-grow-1">
+              Seiring berkembangnya teknologi, data menjadi aset paling berharga
+              di dunia digital.
+            </p>
+            <button
+              class="btn btn-cyber w-100 btn-learn-more"
+              data-link="artikel2.html"
+              type="button"
+            >
+              Pelajari Lebih Lanjut
+            </button>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card" tabindex="0" aria-label="Network Security">
+          <img
+            src="./img/artikel3.jpg"
+            class="card-img-top"
+            alt="Ilustrasi Network Security"
+            height="180"
+            width="320"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title glow-text">
+              Network Security
+              <i class="fas fa-network-wired glow-icon ms-2"></i>
+            </h5>
+            <p class="card-text flex-grow-1">
+              Network security atau keamanan jaringan merupakan upaya menyeluruh
+              untuk melindungi infrastruktur jaringan dari ancaman eksternal
+              maupun internal.
+            </p>
+            <button
+              class="btn btn-cyber w-100 btn-learn-more"
+              data-link="artikel3.html"
+              type="button"
+            >
+              Pelajari Lebih Lanjut
+            </button>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="card" tabindex="0" aria-label="Cyber Threat Analysis">
+          <img
+            src="./img/artikel4.jpg"
+            class="card-img-top"
+            alt="gambar Cyber Threat Analysis:"
+            height="180"
+            width="320"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title glow-text">
+              Cyber Threat Analysis
+              <i class="fas fa-radar glow-icon ms-2"></i>
+            </h5>
+            <p class="card-text flex-grow-1">
+              Cyber threat analysis adalah proses analisis menyeluruh terhadap
+              berbagai ancaman digital yang berpotensi membahayakan sistem atau
+              data.
+            </p>
+            <button
+              class="btn btn-cyber w-100 btn-learn-more"
+              data-link="artikel4.html"
+              type="button"
+            >
+              Pelajari Lebih Lanjut
+            </button>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="card" tabindex="0" aria-label="Secure Authentication">
+          <img
+            src="./img/artikel5.jpg"
+            class="card-img-top"
+            alt="Secure Authentication"
+            height="180"
+            width="320"
+          />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title glow-text">
+              Secure Authentication
+              <i class="fas fa-fingerprint glow-icon ms-2"></i>
+            </h5>
+            <p class="card-text flex-grow-1">
+              Autentikasi adalah langkah pertama dalam proses keamanan digital
+            </p>
+            <button
+              class="btn btn-cyber w-100 btn-learn-more"
+              data-link="artikel5.html"
+              type="button"
+            >
+              Pelajari Lebih Lanjut
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-center gap-4 align-items-center"
+      >
+        <a href="home.html" aria-label="Home">Home</a>
+        <a href="artikel.html" aria-label="Artikrl">Artikel</a>
+        <a href="profil.html" aria-label="Profil">Profil</a>
+        <a href="galeri.html" aria-label="Galeri">Galeri</a>
+        <a href="kontak.html" aria-label="Kontact">Kontak</a>
+        <span>© 2024 CyberTrunk. All rights reserved.</span>
+      </div>
+      <div class="footer-icons mt-2">
+        <a href="#" aria-label="Facebook" class="glow-icon"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="#" aria-label="Twitter" class="glow-icon"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a href="#" aria-label="LinkedIn" class="glow-icon"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a href="#" aria-label="Instagram" class="glow-icon"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(function () {
+        const $track = $("#sliderTrack");
+        const $cards = $track.children();
+        const cardCount = $cards.length;
+
+        function getVisibleCards() {
+          if (window.innerWidth <= 600) return 1;
+          if (window.innerWidth <= 1200) return 3;
+          return 3;
+        }
+
+        let visibleCards = getVisibleCards();
+        let currentIndex = 0;
+        let cardWidth = $cards.outerWidth(true);
+
+        function updateDimensions() {
+          visibleCards = getVisibleCards();
+          cardWidth = $cards.outerWidth(true);
+        }
+
+        function getMaxIndex() {
+          return Math.max(cardCount - visibleCards, 0);
+        }
+
+        function slideTo(index) {
+          const maxIndex = getMaxIndex();
+          if (index < 0) index = maxIndex;
+          if (index > maxIndex) index = 0;
+          currentIndex = index;
+          const distance = -currentIndex * cardWidth;
+          $track.css("transform", `translateX(${distance}px)`);
+        }
+
+        function slideNext() {
+          slideTo(currentIndex + 1);
+        }
+
+        function slidePrev() {
+          slideTo(currentIndex - 1);
+        }
+
+        $("#prevBtn").on("click", slidePrev);
+        $("#nextBtn").on("click", slideNext);
+
+        // Swipe gesture
+        let startX = null;
+        let isSwiping = false;
+        const threshold = 50;
+
+        $track.on("touchstart", function (e) {
+          startX = e.originalEvent.touches[0].clientX;
+          isSwiping = true;
+        });
+
+        $track.on("touchmove", function (e) {
+          if (!isSwiping) return;
+          let currentX = e.originalEvent.touches[0].clientX;
+          let diffX = startX - currentX;
+          if (diffX > threshold) {
+            slideNext();
+            isSwiping = false;
+          } else if (diffX < -threshold) {
+            slidePrev();
+            isSwiping = false;
+          }
+        });
+
+        $track.on("touchend touchcancel", function () {
+          isSwiping = false;
+          startX = null;
+        });
+
+        $(window).on("resize", function () {
+          updateDimensions();
+          slideTo(currentIndex);
+        });
+
+        updateDimensions();
+        slideTo(0);
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $(".btn-learn-more").click(function () {
+          const targetPage = $(this).data("link");
+          if (targetPage) {
+            window.location.href = targetPage;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
