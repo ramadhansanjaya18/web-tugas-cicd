@@ -16,13 +16,17 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/tes_server_polindra
-          chmod 600 ~/.ssh/tes_server_polindra
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -p 8022 -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Deploy to Server
         run: |
           rsync -avz --delete \
-          -e "ssh -p 8022 -i ~/.ssh/tes_server_polindra" \
+          --no-perms --no-owner --no-group \
+          --exclude ".git" \
+          --exclude ".github" \
+          --exclude ".vscode" \
+          -e "ssh -p 8022 -i ~/.ssh/deploy_key" \
           ./ \
           ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:${{ secrets.DEPLOY_PATH }}
