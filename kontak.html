@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CyberTrunk - Cybersecurity Modern Website</title>
+    <title>Tugas deploy CICD</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -32,7 +32,9 @@
 
       .glow-text {
         color: #5fd1c7;
-        text-shadow: 0 0 2px #5fd1c7, 0 0 4px #3bb7b0;
+        text-shadow:
+          0 0 2px #5fd1c7,
+          0 0 4px #3bb7b0;
       }
 
       .glow-icon {
@@ -47,18 +49,24 @@
       .navbar {
         z-index: 9999;
         background: #121526;
-        box-shadow: 0 0 6px #3bb7b044, inset 0 0 10px #3bb7b022;
+        box-shadow:
+          0 0 6px #3bb7b044,
+          inset 0 0 10px #3bb7b022;
       }
       .navbar-brand,
       .nav-link {
         color: #5fd1c7 !important;
-        text-shadow: 0 0 2px #5fd1c7, 0 0 4px #3bb7b0;
+        text-shadow:
+          0 0 2px #5fd1c7,
+          0 0 4px #3bb7b0;
         transition: color 0.3s ease;
       }
       .nav-link:hover,
       .nav-link:focus {
         color: #3bb7b0 !important;
-        text-shadow: 0 0 4px #3bb7b0, 0 0 6px #3bb7b0;
+        text-shadow:
+          0 0 4px #3bb7b0,
+          0 0 6px #3bb7b0;
       }
       /* Canvas full screen behind content */
       #matrixCanvas {
@@ -86,7 +94,9 @@
         padding: 1.5rem 2.5rem 2rem 2.5rem;
         background: #111111cc;
         border-radius: 12px;
-        box-shadow: 0 0 10px #3bb7b0aa, inset 0 0 15px #3bb7b0cc;
+        box-shadow:
+          0 0 10px #3bb7b0aa,
+          inset 0 0 15px #3bb7b0cc;
         box-sizing: border-box;
         max-height: 95vh;
         overflow-y: auto;
@@ -100,7 +110,9 @@
         text-align: center;
         margin-bottom: 2rem;
         color: #3bb7b0;
-        text-shadow: 0 0 8px #3bb7b0, 0 0 20px #3bb7b0;
+        text-shadow:
+          0 0 8px #3bb7b0,
+          0 0 20px #3bb7b0;
       }
 
       /* Form styles */
@@ -118,14 +130,18 @@
         font-family: "Share Tech Mono", monospace;
         font-size: 1rem;
         box-shadow: 0 0 8px #3bb7b0;
-        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
         resize: vertical;
       }
 
       input.form-control:focus,
       textarea.form-control:focus {
         border-color: #3bb7b0;
-        box-shadow: 0 0 12px #3bb7b0, 0 0 20px #3bb7b0;
+        box-shadow:
+          0 0 12px #3bb7b0,
+          0 0 20px #3bb7b0;
         background-color: #0a0a0a;
         color: #3bb7b0;
         outline: none;
@@ -141,8 +157,12 @@
         border: none;
         border-radius: 8px;
         padding: 0.6rem 1.5rem;
-        box-shadow: 0 0 15px #3bb7b0, inset 0 0 10px #3bb7b0;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow:
+          0 0 15px #3bb7b0,
+          inset 0 0 10px #3bb7b0;
+        transition:
+          background-color 0.3s ease,
+          box-shadow 0.3s ease;
         cursor: pointer;
         user-select: none;
         width: 100%;
@@ -152,7 +172,9 @@
       button.btn-submit:hover,
       button.btn-submit:focus {
         background-color: #2a8a87;
-        box-shadow: 0 0 25px #3bb7b0, inset 0 0 15px #3bb7b0;
+        box-shadow:
+          0 0 25px #3bb7b0,
+          inset 0 0 15px #3bb7b0;
         outline: none;
       }
 
@@ -539,7 +561,7 @@
                 `<h3>Data yang Anda Kirim:</h3>
               <p><strong>Nama Lengkap:</strong> ${safeFullName}</p>
               <p><strong>Email:</strong> ${safeEmail}</p>
-              <p><strong>Pesan:</strong><br>${safeMessage}</p>`
+              <p><strong>Pesan:</strong><br>${safeMessage}</p>`,
               )
               .hide()
               .fadeIn(600);
